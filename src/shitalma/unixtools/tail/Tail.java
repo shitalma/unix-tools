@@ -5,6 +5,7 @@ import java.io.FileReader;
 class operations {
     public void display_tail(int size,String text) {
         String[] result = text.split("\r\n");
+
         for(int i = result.length-size ;  i < result.length; i++) System.out.println(result[i]);
     }
 }
@@ -12,6 +13,7 @@ public class Tail {
     public static void main(String[] args) {
         operations operations = new operations();
         int length = 10;
+
         BufferedReader bufferedReader;
         String fileContent = null;
         try {
