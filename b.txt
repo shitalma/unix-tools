@@ -1,9 +1,12 @@
-one
-two
+one data
+two data
 this is good
 this is good
-how are
+how are data
 how are you
-fine
-fine
+fine data
+fine data
 thank you
+good morning
+good night
+good night
