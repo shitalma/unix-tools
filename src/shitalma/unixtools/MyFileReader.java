@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class MyFileReader {
-    public static String readFile(String fileName) {
+    public String readFile(String fileName) {
         String fileContents;
         fileContents = "";
         File file = new File(fileName);
