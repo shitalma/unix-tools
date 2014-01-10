@@ -1,6 +1,5 @@
 package shitalma.unixtools.uniq;
 
-
 import shitalma.unixtools.MyFileReader;
 
 public class UniqOperations extends MyFileReader {
