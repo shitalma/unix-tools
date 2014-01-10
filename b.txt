@@ -1,11 +1,11 @@
 one data
-two data
+two
 this is good
 this is good
-how are data
+how are
 how are you
-fine data
-fine data
+fine
+fine
 thank you
 good morning
 good night
