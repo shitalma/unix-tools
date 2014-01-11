@@ -10,5 +10,11 @@ public class Sort {
         for (String s : sortedData) {
             System.out.println(s);
         }
+        System.out.println("reversing string\n\n\n\n\n");
+        String[] reverse = so.reverseData(fileContent);
+        for (String s : reverse) {
+            System.out.println(s);
+        }
+
     }
 }
