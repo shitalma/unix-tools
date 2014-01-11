@@ -14,9 +14,9 @@ public class Cut {
             if(args.length == 2) {           // for field and character
                 fileContent = operations.readFile(args[1]);
                 int number = Integer.parseInt(args[0].substring(2,3));
-                String character = args[0].substring(1, 2);
-                if (0 == character.compareTo("f"))
-                    operations.cut_specific_field(number, fileContent);
+                String character = args[0].substring(0, 2);
+                if (0 == character.compareTo("-f"))
+                    operations.cut_specific_field(fileContent);
                 else operations.cut_specific_character(number, fileContent);
             }
         } catch(Exception e) {
