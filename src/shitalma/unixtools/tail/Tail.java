@@ -1,16 +1,25 @@
 package shitalma.unixtools.tail;
 
+import shitalma.unixtools.FileReader;
+
 public class Tail {
     public static void main(String[] args) {
-        TailOperations operations = new TailOperations();
+        FileReader readContent = new FileReader();
         int length = 10;
         String fileData;
+        String fileName = args[0];
         if(args.length == 2){
             length = Integer.parseInt(args[0]) * (-1);
-            fileData = operations.readFile(args[1]);
+            fileName = args[1];
         }
-        else
-            fileData = operations.readFile(args[0]);
-        operations.display_tail(length, fileData);
+        fileData = readContent.readFile(fileName);
+        TailLib head = new TailLib(length,fileData);
+        String[] lines = head.display_tail();
+        StringBuilder sb = new StringBuilder();
+        for (String line : lines) {
+            sb.append(line);
+            sb.append("\n");
+        }
+        System.out.println(sb.toString());
     }
 }
