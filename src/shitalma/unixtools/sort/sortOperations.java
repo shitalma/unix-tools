@@ -1,13 +1,13 @@
 package shitalma.unixtools.sort;
 
-import shitalma.unixtools.MyFileReader;
+import shitalma.unixtools.FileReader;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 
-public class sortOperations extends MyFileReader{
+public class sortOperations extends FileReader{
     public String[] sort(String fileContent) {
         String[] lines = fileContent.split("\r\n");
         Arrays.sort(lines);

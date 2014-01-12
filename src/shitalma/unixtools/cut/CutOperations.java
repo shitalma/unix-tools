@@ -1,7 +1,7 @@
 package shitalma.unixtools.cut;
-import shitalma.unixtools.MyFileReader;
+import shitalma.unixtools.FileReader;
 
-public class CutOperations extends MyFileReader {
+public class CutOperations extends FileReader {
     public void cut_specific_character(int number,String text) {
         String[] result = text.split("\r\n");
         for (int i = 0; i < result.length-1; i++)

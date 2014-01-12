@@ -1,13 +1,11 @@
 package shitalma.unixtools;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class MyFileReader {
+public class FileReader {
     public String readFile(String fileName) {
-        String fileContents;
-        fileContents = "";
+        String fileContents = "";
         File file = new File(fileName);
         try{
             Scanner scanner = new Scanner(file);

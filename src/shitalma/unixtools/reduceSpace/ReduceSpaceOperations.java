@@ -1,11 +1,11 @@
 package shitalma.unixtools.reduceSpace;
 
-import shitalma.unixtools.MyFileReader;
+import shitalma.unixtools.FileReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class ReduceSpaceOperations extends MyFileReader{
+public class ReduceSpaceOperations extends FileReader{
     BufferedWriter writeTo;
     public ReduceSpaceOperations() {
         try {

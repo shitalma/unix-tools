@@ -1,8 +1,8 @@
 package shitalma.unixtools.uniq;
 
-import shitalma.unixtools.MyFileReader;
+import shitalma.unixtools.FileReader;
 
-public class UniqOperations extends MyFileReader {
+public class UniqOperations extends FileReader {
     public void display_uniq(String text) {
         String[] result = text.split("\r\n");
         for(int i =1; i< result.length-1; i++){

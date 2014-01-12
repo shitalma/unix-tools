@@ -1,10 +1,10 @@
 package shitalma.unixtools.wc;
 
-import shitalma.unixtools.MyFileReader;
+import shitalma.unixtools.FileReader;
 
 public class WcClient{
     public static void main(String[] args) {
-        MyFileReader readContent = new MyFileReader();
+        FileReader readContent = new FileReader();
         WcLib operations = new WcLib();
         String fileData = readContent.readFile(args[0]);
         int lines = operations.countLines(fileData);

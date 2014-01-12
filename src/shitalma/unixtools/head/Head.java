@@ -1,16 +1,25 @@
 package shitalma.unixtools.head;
 
+import shitalma.unixtools.FileReader;
+
 public class Head {
     public static void main(String[] args) {
-        HeadOperations operations = new HeadOperations();
+        FileReader readContent = new FileReader();
         int length = 10;
         String fileData;
+        String fileName = args[0];
         if(args.length == 2){
             length = Integer.parseInt(args[0]) * (-1);
-            fileData = operations.readFile(args[1]);
+            fileName = args[1];
         }
-        else
-            fileData = operations.readFile(args[0]);
-        operations.display_head((length), fileData);
+        fileData = readContent.readFile(fileName);
+        HeadLib head = new HeadLib(length,fileData);
+        String[] lines = head.display_head();
+        StringBuilder sb = new StringBuilder();
+        for (String line : lines) {
+            sb.append(line);
+            sb.append("\n");
+        }
+        System.out.println(sb.toString());
     }
 }
