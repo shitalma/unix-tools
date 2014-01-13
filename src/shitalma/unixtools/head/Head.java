@@ -14,9 +14,10 @@ public class Head {
         }
         fileData = readContent.readFile(fileName);
         HeadLib head = new HeadLib(length,fileData);
-        String[] lines = head.display_head();
+        String lines = head.display_head();
+        String[] result = lines.split("\r\n");
         StringBuilder sb = new StringBuilder();
-        for (String line : lines) {
+        for (String line : result) {
             sb.append(line);
             sb.append("\n");
         }

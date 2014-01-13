@@ -1,7 +1,5 @@
 package shitalma.unixtools.tail;
 
-import java.lang.reflect.Array;
-
 public class TailLib {
     private String text;
     private int limit;
