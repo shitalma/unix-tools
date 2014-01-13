@@ -1,11 +1,14 @@
 package shitalma.unixtools.reduceSpace;
 
+import shitalma.unixtools.FileReader;
+
 import java.io.IOException;
 
 public class ReduceSpace {
     public static void main(String[] args) throws IOException {
-        ReduceSpaceOperations rso = new ReduceSpaceOperations();
-        String fileContent = rso.readFile(args[0]);
-        rso.reduceSpace(fileContent);
+        FileReader readContent = new FileReader();
+        SpaceReducerLib rso = new SpaceReducerLib();
+        String fileContent = readContent.readFile(args[0]);
+        rso.spaceReducer(fileContent);
     }
 }
