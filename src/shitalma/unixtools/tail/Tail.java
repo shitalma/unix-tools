@@ -14,9 +14,10 @@ public class Tail {
         }
         fileData = readContent.readFile(fileName);
         TailLib head = new TailLib(length,fileData);
-        String[] lines = head.display_tail();
+        String lines = head.display_tail();
+        String[] result = lines.split("\r\n");
         StringBuilder sb = new StringBuilder();
-        for (String line : lines) {
+        for (String line : result) {
             sb.append(line);
             sb.append("\n");
         }
