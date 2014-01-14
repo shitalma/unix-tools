@@ -2,7 +2,6 @@ package shitalma.unixtools.fileSystem;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-
 public class FileReader {
     public String readFile(String fileName) {
         String fileContents = "";
