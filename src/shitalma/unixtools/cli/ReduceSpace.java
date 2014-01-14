@@ -10,6 +10,9 @@ public class ReduceSpace {
         FileReader readContent = new FileReader();
         SpaceReducerLib rso = new SpaceReducerLib();
         String fileContent = readContent.readFile(args[0]);
-        rso.spaceReducer(fileContent);
+        String result = rso.spaceReducer(fileContent);
+        String[] data = result.split("\r\n");
+        for (String s : data)
+            System.out.println(s);
     }
 }
