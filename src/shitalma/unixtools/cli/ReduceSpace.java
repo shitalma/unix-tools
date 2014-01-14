@@ -1,6 +1,6 @@
 package shitalma.unixtools.cli;
 
-import shitalma.unixtools.fileSystem.FileReader;
+import shitalma.unixtools.filesystem.FileReader;
 import shitalma.unixtools.libraries.SpaceReducerLib;
 
 import java.io.IOException;

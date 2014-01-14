@@ -1,0 +1,1 @@
+java -cp out/artifacts/UnixTools_jar/UnixTools.jar shitalma.unixtools.cli.WcClient $1

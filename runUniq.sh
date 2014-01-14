@@ -1,0 +1,1 @@
+java -cp out/artifacts/UnixTools_jar/unixTools.jar shitalma.unixtools.cli.Uniq $1

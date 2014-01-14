@@ -1,6 +1,6 @@
 package shitalma.unixtools.libraries;
 
-import shitalma.unixtools.fileSystem.FileReader;
+import shitalma.unixtools.filesystem.FileReader;
 
 import java.util.Arrays;
 import java.util.Collections;
