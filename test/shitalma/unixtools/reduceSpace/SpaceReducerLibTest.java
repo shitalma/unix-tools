@@ -1,6 +1,7 @@
 package shitalma.unixtools.reduceSpace;
 
 import org.junit.Test;
+import shitalma.unixtools.libraries.SpaceReducerLib;
 
 import static org.junit.Assert.assertEquals;
 

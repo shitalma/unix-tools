@@ -1,6 +1,8 @@
 package shitalma.unixtools.wc;
 
 import org.junit.Test;
+import shitalma.unixtools.libraries.WcLib;
+
 import static org.junit.Assert.assertEquals;
 
 public class WcLibTest {

@@ -1,8 +1,9 @@
-package shitalma.unixtools.head;
+package shitalma.unixtools.cli;
 
-import shitalma.unixtools.FileReader;
+import shitalma.unixtools.fileSystem.FileReader;
+import shitalma.unixtools.libraries.TailLib;
 
-public class Head {
+public class Tail {
     public static void main(String[] args) {
         FileReader readContent = new FileReader();
         int length = 10;
@@ -13,8 +14,8 @@ public class Head {
             fileName = args[1];
         }
         fileData = readContent.readFile(fileName);
-        HeadLib head = new HeadLib(length,fileData);
-        String lines = head.display_head();
+        TailLib head = new TailLib(length,fileData);
+        String lines = head.display_tail();
         String[] result = lines.split("\r\n");
         StringBuilder sb = new StringBuilder();
         for (String line : result) {

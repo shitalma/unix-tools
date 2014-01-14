@@ -1,6 +1,7 @@
 package shitalma.unixtools.uniq;
 
 import org.junit.Test;
+import shitalma.unixtools.libraries.UniqLib;
 
 import static org.junit.Assert.assertEquals;
 

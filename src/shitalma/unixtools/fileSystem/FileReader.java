@@ -1,4 +1,4 @@
-package shitalma.unixtools;
+package shitalma.unixtools.fileSystem;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package shitalma.unixtools.wc;
+package shitalma.unixtools.libraries;
 
 public class WcLib {
         public int countLines(String text) {

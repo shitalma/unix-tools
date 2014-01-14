@@ -1,4 +1,4 @@
-package shitalma.unixtools.uniq;
+package shitalma.unixtools.libraries;
 
 public class UniqLib {
         public String uniqLines(String text) {

@@ -1,4 +1,4 @@
-package shitalma.unixtools.tail;
+package shitalma.unixtools.libraries;
 
 public class TailLib {
     private String text;

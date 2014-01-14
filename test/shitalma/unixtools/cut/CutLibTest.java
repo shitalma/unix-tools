@@ -1,7 +1,7 @@
 package shitalma.unixtools.cut;
 
 import org.junit.Test;
-import shitalma.unixtools.tail.TailLib;
+import shitalma.unixtools.libraries.CutLib;
 
 import static org.junit.Assert.assertEquals;
 

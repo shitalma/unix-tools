@@ -1,6 +1,7 @@
-package shitalma.unixtools.cut;
+package shitalma.unixtools.cli;
 
-import shitalma.unixtools.FileReader;
+import shitalma.unixtools.fileSystem.FileReader;
+import shitalma.unixtools.libraries.CutLib;
 
 public class Cut {
     public static void main(String[] args) {

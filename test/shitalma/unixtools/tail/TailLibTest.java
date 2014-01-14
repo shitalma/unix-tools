@@ -1,6 +1,7 @@
 package shitalma.unixtools.tail;
 
 import org.junit.Test;
+import shitalma.unixtools.libraries.TailLib;
 
 import static org.junit.Assert.assertEquals;
 

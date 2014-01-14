@@ -1,4 +1,4 @@
-package shitalma.unixtools.reduceSpace;
+package shitalma.unixtools.libraries;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

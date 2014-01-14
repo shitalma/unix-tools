@@ -1,6 +1,7 @@
-package shitalma.unixtools.uniq;
+package shitalma.unixtools.cli;
 
-import shitalma.unixtools.FileReader;
+import shitalma.unixtools.fileSystem.FileReader;
+import shitalma.unixtools.libraries.UniqLib;
 
 public class Uniq {
     public static void main(String[] args) {

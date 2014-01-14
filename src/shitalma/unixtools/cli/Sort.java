@@ -1,5 +1,7 @@
-package shitalma.unixtools.sort;
+package shitalma.unixtools.cli;
 
+
+import shitalma.unixtools.libraries.sortOperations;
 
 public class Sort {
     public static void main(String[] args) {

@@ -1,6 +1,8 @@
 package shitalma.unixtools.head;
 
 import org.junit.Test;
+import shitalma.unixtools.libraries.HeadLib;
+
 import static org.junit.Assert.assertEquals;
 
 public class HeadLibTest {

@@ -1,4 +1,4 @@
-package shitalma.unixtools.cut;
+package shitalma.unixtools.libraries;
 
 public class CutLib {
         public String cutSpecificCharacter(int number, String text) {

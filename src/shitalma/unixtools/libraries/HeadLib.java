@@ -1,4 +1,4 @@
-package shitalma.unixtools.head;
+package shitalma.unixtools.libraries;
 
 public class HeadLib {
     private String text;
