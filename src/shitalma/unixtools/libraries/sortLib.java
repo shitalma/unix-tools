@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class sortLib {
-    public String sortData(String input){
+    public String sortData(String input) {
         String lines[] = input.split("\n");
         Arrays.sort(lines);
         StringBuilder result = new StringBuilder();
@@ -14,7 +14,8 @@ public class sortLib {
         }
         return result.toString();
     }
-    public String reverseData(String input){
+
+    public String reverseData(String input) {
         String data = sortData(input);
         String[] lines = data.split("\r\n");
         StringBuilder result = new StringBuilder();

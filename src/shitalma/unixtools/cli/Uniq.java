@@ -8,7 +8,7 @@ public class Uniq {
         String text;
         StringBuilder result;
         FileReader readFile = new FileReader();
-        text =readFile.readFile(args[0]);
+        text = readFile.readFile(args[0]);
         UniqLib uniq = new UniqLib();
         result = uniq.uniqData(text);
         System.out.println(result);

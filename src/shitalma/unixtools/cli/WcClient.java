@@ -3,7 +3,7 @@ package shitalma.unixtools.cli;
 import shitalma.unixtools.filesystem.FileReader;
 import shitalma.unixtools.libraries.WcLib;
 
-public class WcClient{
+public class WcClient {
     public static void main(String[] args) {
         FileReader readContent = new FileReader();
         WcLib operations = new WcLib();
