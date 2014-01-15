@@ -23,6 +23,7 @@ public class SpaceReducerLib {
             writeTo.write(data + "\r\n");
         }
         writeTo.close();
-        return data.toString();
+        String content = data.toString().substring(0,data.length()-2);
+        return content;
     }
 }
