@@ -1,14 +1,24 @@
 package shitalma.unixtools.libraries;
 
 public class CutLib {
-    public static String column(int field_value, String delimitor, String fileData) {
+    public String text;
+    public int fieldValue;
+    public String delimiter;
+    public CutLib(int fieldValue,String delimiter,String text) {
+        this.fieldValue = fieldValue;
+        this.delimiter = delimiter;
+        this.text = text;
+    }
+
+    public String cutContent() {
         StringBuilder result = new StringBuilder();
-        String lines[] = fileData.split("\r\n");
+        String lines[] = text.split("\r\n");
+        System.out.println(lines);
         String words_a_line[];
         for (int counter = 0; counter < lines.length; counter++) {
-            words_a_line = lines[counter].split(delimitor);
-            result.append(words_a_line[field_value - 1]);
-            result.append("\n");
+            words_a_line = lines[counter].split(delimiter);
+            result.append(words_a_line[fieldValue]);
+            result.append("\r\n");
         }
         return result.toString();
     }
