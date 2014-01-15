@@ -8,7 +8,6 @@ public class Cut {
         Cut cutclient = new Cut();
         if(args.length == 0){
             System.out.println("please give file name,fieldNo");
-
             return;
         }
         FileReader fs = new FileReader();
@@ -17,6 +16,7 @@ public class Cut {
         if(properArgv[0] == null && properArgv[1] == null || properArgv[0] != null && properArgv[1] == null) {
             String fileData = fs.readFile(properArgv[2]);
             System.out.println(fileData);
+            return;
         }
         String delimitor = " ";
         if(properArgv[1] != null)
