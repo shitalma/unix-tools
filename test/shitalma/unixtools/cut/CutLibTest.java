@@ -1,28 +1,19 @@
 package shitalma.unixtools.cut;
 
-public class CutLibTest {
-    final String input = "I am here.\r\nMy name is Shital\r\nHow are You\r\ndada\r\ndidi\r\n";
-//    @Test
-//    public void testCut_specific_character() throws Exception {
-//        CutLib cut = new CutLib();
-//        String expected = "I\r\nM\r\nH\r\nd\r\nd\r\n";
-//        String actual = cut.cutSpecificCharacter(1, input);
-//        assertEquals(expected, actual);
-//    }
-//
-//    @Test
-//    public void testCut_specific_field() throws Exception {
-//        CutLib cut = new CutLib();
-//        String expected = input;
-//        String actual = cut.cutSpecificField(input);
-//        assertEquals(expected, actual);
-//    }
+import org.junit.Test;
+import shitalma.unixtools.libraries.CutLib;
 
-//    @Test
-//    public void testCut_using_specific_field_and_seperator() throws Exception {
-//        CutLib cut = new CutLib();
-//        String expected = "I\r\nMy\r\nHow\r\ndada\r\ndidi\r\n";
-//        String actual = cut.cutUsingSpecificFieldAndSeperator(1, " ", input);
-//        assertEquals(expected, actual);
-//    }
+import static junit.framework.Assert.assertEquals;
+
+public class CutLibTest {
+    @Test
+    public void testCutCount() throws Exception {
+        String text = "manali T\nShital M";
+        String expected = "manali\r\nShital\r\n";
+        CutLib uniq = new CutLib();
+        String result = uniq.column(1," ",text);
+        String actual = result.toString();
+        assertEquals(expected,actual);
+    }
+
 }

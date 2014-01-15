@@ -1,24 +1,41 @@
 package shitalma.unixtools.cli;
 
+import shitalma.unixtools.filesystem.FileReader;
+import shitalma.unixtools.libraries.sortLib;
 
-import shitalma.unixtools.libraries.sortOperations;
+import java.io.IOException;
 
 public class Sort {
-    public static void main(String[] args) {
-        String[] sortedData;
-        sortOperations so = new sortOperations();
-        String fileContent;
-        if(args.length == 2 && 0 == args[0].compareTo("-r")) {
-            fileContent = so.readFile(args[1]);
-            String[] reverse = so.reverseData(fileContent);
-            for (String s : reverse)
-                System.out.println(s);
+    public static void main(String args[]) throws IOException {
+        Sort sortclient = new Sort();
+        FileReader fs = new FileReader();
+        sortLib sort = new sortLib();
+        String columnData;
+        String properArgv[] = sortclient.getArguments(args);
+        String fileData = fs.readFile(properArgv[0]);
+        if (properArgv[1] == null)
+            columnData = sort.sortData(fileData);
+        else
+            columnData = sort.reverseData(fileData);
+        System.out.println(columnData);
+    }
+
+    String[] getArguments(String[] arg) {
+        String options[] = new String[2];
+        for (int i = 0; i < arg.length; i++) {
+            if (Sort.isReverse(arg[i]))
+                options[1] = arg[i];
+            if (!Sort.isFile(arg[i]))
+                options[0] = arg[i];
         }
-        else {
-            fileContent = so.readFile(args[0]);
-            sortedData = so.sort(fileContent);
-            for (String s : sortedData)
-                System.out.println(s);
-        }
+        return options;
+    }
+
+    static boolean isReverse(String arg) {
+        return arg.matches("-r.*");
+    }
+
+    static boolean isFile(String arg) {
+        return arg.matches("-.*");
     }
 }
