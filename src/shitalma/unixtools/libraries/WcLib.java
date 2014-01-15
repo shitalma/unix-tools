@@ -1,23 +1,21 @@
 package shitalma.unixtools.libraries;
 
 public class WcLib {
-    public int countLines(String text) {
-        int noOfLines = 0;
-        String[] result = text.split("\r\n");
-        for (String i : result)
-            noOfLines += i.split("\n").length;
-        return noOfLines;
+    String text;
+
+    public WcLib(String text) {
+        this.text = text;
     }
 
-    public int countWords(String text) {
-        int noOfWords = 0;
-        String[] result = text.split("\r\n");
-        for (String item : result)
-            noOfWords += item.split("\\s").length;
-        return noOfWords;
+    public int countWords() {
+        return text.split("\\w+").length-1;
     }
 
-    public int countCharacters(String text) {
-        return text.length();
+    public int countLines() {
+        return text.split("\r\n").length - 1;
+    }
+
+    public int countCharacters() {
+        return text.length() -1;
     }
 }

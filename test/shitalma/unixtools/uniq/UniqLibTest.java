@@ -13,7 +13,7 @@ public class UniqLibTest {
         StringBuilder expected = new StringBuilder();
         StringBuilder actual;
 
-        expected.append("I am here.\r\nMy name is Shital\r\n How are You");
+        expected.append("I am here.\r\nMy name is Shital\r\n How are You\r\n");
         actual = uniq.uniqData(input);
         assertEquals(expected, actual);
     }
@@ -24,7 +24,7 @@ public class UniqLibTest {
         UniqLib uniq = new UniqLib();
         StringBuilder expected = new StringBuilder();
         StringBuilder actual;
-        expected.append("I am here.\r\nMy name is Shital\r\n How are You");
+        expected.append("I am here.\r\nMy name is Shital\r\n How are You\r\n");
         actual = uniq.uniqData(input);
         assertEquals(expected, actual);
     }
