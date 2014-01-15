@@ -3,8 +3,10 @@ package shitalma.unixtools.cli;
 import shitalma.unixtools.filesystem.FileReader;
 import shitalma.unixtools.libraries.SpaceReducerLib;
 
+import java.io.IOException;
+
 public class ReduceSpace {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         FileReader readContent = new FileReader();
         SpaceReducerLib rso;
         rso = new SpaceReducerLib();

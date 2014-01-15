@@ -1,29 +1,16 @@
 package shitalma.unixtools.libraries;
 
 public class CutLib {
-        public String cutSpecificCharacter(int number, String text) {
-            String[] result = text.split("\r\n");
-            StringBuilder charactersAfterCutting = new StringBuilder();
-            for (int i = 0; i < result.length; i++)
-                charactersAfterCutting.append(result[i].substring(number-1,number)).append("\r\n");
-            return charactersAfterCutting.toString();
+    public static String column(int field_value, String delimitor, String fileData) {
+        StringBuilder result = new StringBuilder();
+        String lines[] = fileData.split("\r\n");
+        if(lines.length < field_value)  return result.toString();
+        String words_a_line[];
+        for (int counter = 0; counter < lines.length; counter++) {
+            words_a_line = lines[counter].split(delimitor);
+            result.append(words_a_line[field_value - 1]);
+            result.append("\n");
         }
-        public String cutSpecificField(String text) {
-            String[] result = text.split("\r\n");
-            StringBuilder fields = new StringBuilder();
-            for (String aResult : result)
-                fields.append(aResult).append("\r\n");
-            return fields.toString();
-        }
-        public String cutUsingSpecificFieldAndSeperator(int fieldNumber,String seperator,String text) {
-            String[] result = text.split("\r\n");
-            StringBuilder cut = new StringBuilder();
-            for (String aResult : result) {
-                String[] data = aResult.split(seperator);
-                if (data.length < fieldNumber)
-                    cut.append("\r\n");
-                else cut.append(data[fieldNumber - 1]).append("\r\n");
-            }
-            return cut.toString();
-        }
+        return result.toString();
+    }
 }
