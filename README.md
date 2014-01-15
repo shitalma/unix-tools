@@ -1,90 +1,90 @@
 unix-tools
 ==========
 
-## wc 
+## WC
 
-wc  file-name           
+smWc.sh  file-name           
 
-Example ->    `wc  one.txt`
+Example ->    `smWc  one.txt`
 
-It will be display word count,character count and lines count presented in this given file.
+           It will be display word count,character count and lines count presented in this given file.
 
 
-## head
+## Head
 
-.. head -[No of lines]  file-name
+* smHead -[No of lines]  file-name
 
-Example ->  `head -5 one.txt`
+Example ->  `smHead -5 one.txt`
 
-It will be display first 5 lines from given file.
+           It will be display first 5 lines from given file.
 
-.. head file-name 
+* smHead file-name 
            
-Example -> `head one.txt`
+Example -> `smHead one.txt`
 
-It will be display default first 10 lines from given file.
+           It will be display default first 10 lines from given file.
 
 
-## tail
+## Tail
 
-.. tail -[No of lines]  file-name
+*smTail -[No of lines]  file-name
 
-Example ->  `tail -5 one.txt`
+Example ->  `smTail -5 one.txt`
 
-It will be display last 5 lines from given file.
+           It will be display last 5 lines from given file.
 
-.. tail file-name 
+*smTail file-name 
            
-Example -> `tail one.txt`
+Example -> `smTail one.txt`
 
-It will be display default last 10 lines from given file.
+           It will be display default last 10 lines from given file.
 
-## uniq
+## Uniq
 
-uniq file-name
+smUniq file-name
 
-Example -> `uniq one.txt`
+Example -> `smUniq one.txt`
 
-It will be display uniq lines among the entire file
+           It will be display uniq lines among the entire file
 
-## sort
+## Sort
 
-.. sort file-name
+*smSort file-name
 
-Example -> `sort one.txt`
+Example -> `smSort one.txt`
 
-It will be display all content of the file by sorting ascending order.
+           It will be display all content of the file by sorting ascending order.
 
-.. sort -r file-name
+* smSort -r file-name
 
-Example -> `sort -r one.txt`
+Example -> `smSort -r one.txt`
 
-It will be display all content of the file by decending order.
+           It will be display all content of the file by decending order.
 
 
-## cut
-.. cut -c[number of character] file-name
+## Cut
+* smCut -c[number of character] file-name
 
-Example -> `cut -c3 one.txt`
+Example -> `smCut -c3 one.txt`
 
-It will be display third number character of every line of given file.
+           It will be display third number character of every line of given file.
 
-.. cut -f[number of fields] file-name
+* smCut -f[number of fields] file-name
 
-Example -> `cut -f1 one.txt`
+Example -> `smCut -f1 one.txt`
 
-It will be display all record in given file
+           It will be display all record in given file
 
-.. cut -f[number of fields] -d[delimeter] file-name
+* smCut -f[number of fields] -d[delimeter] file-name
 
-Example -> `cut -f1 -d" " one.txt`
+Example -> `smCut -f1 -d" " one.txt`
 
-It will be display the first field of every line from given file.
+           It will be display the first field of every line from given file.
 
 ## reduce space
 
-reducespace file-name
+smReducer file-name
 
-Example -> `reducespace one.txt`
+Example -> `smReducer one.txt`
 
-It will be remove all extra spaces from the given file.
+           It will be remove all extra spaces from the given file.
