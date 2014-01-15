@@ -11,9 +11,9 @@ public class CutLibTest {
         String text = "manali T\nShital M";
         String expected = "manali\r\nShital\r\n";
         CutLib uniq = new CutLib();
-        String result = uniq.column(1," ",text);
+        String result = uniq.column(1, " ", text);
         String actual = result.toString();
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
 
 }

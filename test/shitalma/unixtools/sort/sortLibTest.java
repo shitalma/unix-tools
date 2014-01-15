@@ -1,4 +1,5 @@
 package shitalma.unixtools.sort;
+
 import shitalma.unixtools.libraries.sortLib;
 
 
@@ -15,6 +16,7 @@ public class sortLibTest {
         String result = uniq.sortData(text);
         assertEquals(expected, result.toString());
     }
+
     @Test
     public void testReverseData() throws Exception {
         String text = "Ram\nSam\nTum";
@@ -23,6 +25,6 @@ public class sortLibTest {
         sortLib uniq = new sortLib();
         String result = uniq.reverseData(text);
         String actual = result.toString();
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
 }

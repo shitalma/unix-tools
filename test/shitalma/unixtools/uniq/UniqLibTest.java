@@ -15,8 +15,9 @@ public class UniqLibTest {
 
         expected.append("I am here.\r\nMy name is Shital\r\n How are You");
         actual = uniq.uniqData(input);
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     @Test
     public void test_uniqData() throws Exception {
         String input = "I am here.\r\nI am here.\r\nMy name is Shital\r\n How are You\r\n How are You\r\n";
@@ -25,6 +26,6 @@ public class UniqLibTest {
         StringBuilder actual;
         expected.append("I am here.\r\nMy name is Shital\r\n How are You");
         actual = uniq.uniqData(input);
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
 }

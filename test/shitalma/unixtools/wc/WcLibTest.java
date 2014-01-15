@@ -7,6 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 public class WcLibTest {
     final String input = "I am Shital Mane.\r\nI am from Satara.\r\nI am fine?";
+
     @Test
     public void testCountLines() throws Exception {
         WcLib wc = new WcLib();
@@ -14,6 +15,7 @@ public class WcLibTest {
         int actual = wc.countLines(input);
         assertEquals(expected, actual);
     }
+
     @Test
     public void testCountWords() throws Exception {
         WcLib wc = new WcLib();
@@ -21,6 +23,7 @@ public class WcLibTest {
         int actual = wc.countWords(input);
         assertEquals(expected, actual);
     }
+
     @Test
     public void testCountCharacters() throws Exception {
         WcLib wc = new WcLib();
