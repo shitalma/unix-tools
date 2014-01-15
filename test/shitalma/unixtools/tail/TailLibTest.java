@@ -6,20 +6,46 @@ import shitalma.unixtools.libraries.TailLib;
 import static org.junit.Assert.assertEquals;
 
 public class TailLibTest {
-    final String input = "I am here.\r\nMy name is Shital\r\nHow are You\r\ndada\r\ndidi\r\nfamily\r\nkavita\r\nraj\r\nsamiksha\r\ntanbir\r\nprajakta";
-
+    final String input = "I am here.\r\n My name is Shital\r\n How are You\r\n"+
+            "manali\r\nkajal\r\nshabrin\r\nshweta\r\nkavita\r\nsayali\r\nprajakta\r\nsamiksha";
     @Test
-    public void testDisplay_tail() throws Exception {
+    public void displayTailWhenNumberIsLessThanTen() throws Exception {
         TailLib tail = new TailLib(2, input);
-        String expected = "tanbir\r\nprajakta\r\n";
+        String expected = "prajakta\r\nsamiksha";
+        String actual = tail.display_tail();
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void displayTailWhenNumberOfLinesAreByeDefaultTen() throws Exception {
+        TailLib tail = new TailLib(10, input);
+        String expected = " My name is Shital\r\n How are You\r\nmanali\r\n"+
+                "kajal\r\nshabrin\r\nshweta\r\nkavita\r\nsayali\r\nprajakta\r\nsamiksha";
         String actual = tail.display_tail();
         assertEquals(expected, actual);
     }
 
     @Test
-    public void testDisplayDefaultTail() throws Exception {
-        TailLib tail = new TailLib(10, input);
-        String expected = "My name is Shital\r\nHow are You\r\ndada\r\ndidi\r\nfamily\r\nkavita\r\nraj\r\nsamiksha\r\ntanbir\r\nprajakta\r\n";
+    public void displayTailWhenNumberOfLinesMoreThanTen() throws Exception {
+        TailLib tail = new TailLib(13, input);
+        String expected = "I am here.\r\n My name is Shital\r\n How are You\r\nmanali\r\n"+
+                 "kajal\r\nshabrin\r\nshweta\r\nkavita\r\nsayali\r\nprajakta\r\nsamiksha";
+        String actual = tail.display_tail();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void displayTailWhenNumberOfLinesMoreThanHundread() throws Exception {
+        TailLib tail = new TailLib(130, input);
+        String expected = "I am here.\r\n My name is Shital\r\n How are You\r\nmanali\r\n"+
+                "kajal\r\nshabrin\r\nshweta\r\nkavita\r\nsayali\r\nprajakta\r\nsamiksha";
+        String actual = tail.display_tail();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void displayTailWhenNumberOfLinesWhenTextIsEmpty() throws Exception {
+        TailLib tail = new TailLib(1, "");
+        String expected = "";
         String actual = tail.display_tail();
         assertEquals(expected, actual);
     }
