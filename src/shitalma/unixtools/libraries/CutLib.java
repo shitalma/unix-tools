@@ -1,25 +1,31 @@
 package shitalma.unixtools.libraries;
-
 public class CutLib {
-    public String text;
-    public int fieldValue;
-    public String delimiter;
-    public CutLib(int fieldValue,String delimiter,String text) {
-        this.fieldValue = fieldValue;
-        this.delimiter = delimiter;
-        this.text = text;
+    public String cutByCharacter(int number, String text) {
+        String[] result = text.split("\r\n");
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < result.length; i++)
+            stringBuilder.append(result[i].substring(number - 1, number)).append("\r\n");
+        return stringBuilder.toString().substring(0,stringBuilder.length()-2);
     }
 
-    public String cutContent() {
-        StringBuilder result = new StringBuilder();
-        String lines[] = text.split("\r\n");
-        System.out.println(lines);
-        String words_a_line[];
-        for (int counter = 0; counter < lines.length; counter++) {
-            words_a_line = lines[counter].split(delimiter);
-            result.append(words_a_line[fieldValue]);
-            result.append("\r\n");
-        }
-        return result.toString();
+    public String cutByField(String text) {
+        String[] result = text.split("\r\n");
+        StringBuilder fields = new StringBuilder();
+        for (String aResult : result)
+            fields.append(aResult).append("\r\n");
+        return fields.toString().substring(0,fields.length()-2);
     }
+
+    public String cutByFieldAndSeparator(int fieldNumber, String seperator, String text) {
+        String[] result = text.split("\r\n");
+        StringBuilder cut = new StringBuilder();
+        for (String aResult : result) {
+            String[] data = aResult.split(seperator);
+            if (data.length < fieldNumber)
+                cut.append("\r\n");
+            else cut.append(data[fieldNumber - 1]).append("\r\n");
+        }
+        return cut.toString().substring(0,cut.length()-2);
+    }
+
 }
