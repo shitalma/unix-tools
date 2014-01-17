@@ -28,6 +28,4 @@
         <zip zipfile="unix-tools.zip" basedir="unix-tools"></zip>
     </target>
 
-
-
 </project>
