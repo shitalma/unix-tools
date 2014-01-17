@@ -1,6 +1,17 @@
 unix-tools
 ==========
 
+## Installing process
+
+1. Copy .zip in your local machine
+2. Extract that .zip file
+3. Running shell commands you have to set environment varible on your local machine name `UNIXTOOLS_SM` 
+and give the path before bin folder.
+4. Set path name as `%UNIXTOOLS_SM%\bin` 
+5. Execute command from git bash.
+
+Example ->  smWc.sh present-file-name-in-this-directory
+
 ## WC
 
 smWc.sh  file-name           
