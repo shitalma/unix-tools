@@ -1,0 +1,33 @@
+<project name="unix-tools">
+
+    <target name="compile">
+        <mkdir dir="classes"></mkdir>
+        <javac srcdir="src" destdir="classes"></javac>
+    </target>
+    <target name="createDir" depends="compile">
+        <mkdir dir="unix-tools"></mkdir>
+        <mkdir dir="unix-tools/bin"></mkdir>
+        <mkdir dir="unix-tools/lib"></mkdir>
+    </target>
+    <target name="createJar" depends="createDir">
+        <jar destfile="unix-tools/lib/unix-tools.jar" basedir="classes"></jar>
+    </target>
+    <target name="copyShells" depends="createJar">
+        <copy file="shellFiles/smWc.sh" todir="unix-tools/bin"></copy>
+        <copy file="shellFiles/smHead.sh" todir="unix-tools/bin"></copy>
+        <copy file="shellFiles/smTail.sh" todir="unix-tools/bin"></copy>
+        <copy file="shellFiles/smUniq.sh" todir="unix-tools/bin"></copy>
+        <copy file="shellFiles/smSort.sh" todir="unix-tools/bin"></copy>
+        <copy file="shellFiles/smReducer.sh" todir="unix-tools/bin"></copy>
+        <copy file="shellFiles/smCut.sh" todir="unix-tools/bin"></copy>
+    </target>
+    <target name="readme" depends="copyShells">
+        <copy file="README.md" todir="unix-tools"></copy>
+    </target>
+    <target name="createZip" depends="readme">
+        <zip zipfile="unix-tools.zip" basedir="unix-tools"></zip>
+    </target>
+
+
+
+</project>

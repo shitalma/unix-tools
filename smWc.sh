@@ -1,1 +1,0 @@
-java -cp $UNIXTOOLS_SH/UnixTools.jar shitalma.unixtools.cli.WcClient $1
