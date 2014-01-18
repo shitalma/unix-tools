@@ -1,31 +1,62 @@
 <project name="unix-tools">
+    <property name="test-dir" location="test"/>
+    <property name="build" location="build"/>
+    <property name="src" location="src"/>
 
-    <target name="compile">
-        <mkdir dir="classes"></mkdir>
-        <javac srcdir="src" destdir="classes"></javac>
-    </target>
-    <target name="createDir" depends="compile">
-        <mkdir dir="unix-tools"></mkdir>
-        <mkdir dir="unix-tools/bin"></mkdir>
-        <mkdir dir="unix-tools/lib"></mkdir>
-    </target>
-    <target name="createJar" depends="createDir">
-        <jar destfile="unix-tools/lib/unix-tools.jar" basedir="classes"></jar>
-    </target>
-    <target name="copyShells" depends="createJar">
-        <copy file="shellFiles/smWc.sh" todir="unix-tools/bin"></copy>
-        <copy file="shellFiles/smHead.sh" todir="unix-tools/bin"></copy>
-        <copy file="shellFiles/smTail.sh" todir="unix-tools/bin"></copy>
-        <copy file="shellFiles/smUniq.sh" todir="unix-tools/bin"></copy>
-        <copy file="shellFiles/smSort.sh" todir="unix-tools/bin"></copy>
-        <copy file="shellFiles/smReducer.sh" todir="unix-tools/bin"></copy>
-        <copy file="shellFiles/smCut.sh" todir="unix-tools/bin"></copy>
-    </target>
-    <target name="readme" depends="copyShells">
-        <copy file="README.md" todir="unix-tools"></copy>
-    </target>
-    <target name="createZip" depends="readme">
-        <zip zipfile="unix-tools.zip" basedir="unix-tools"></zip>
+    <target name="starting">
+        <mkdir dir="${build}/test"/>
+        <mkdir dir="${build}/src"/>
     </target>
 
+    <target name="compile-source" depends="starting">
+        <javac srcdir="${src}" destdir="${build}/src"/>
+    </target>
+
+    <target name="compile-tests" depends="compile-source">
+        <javac srcdir="${test-dir}" destdir="${build}/test"
+               classpath="${test-dir},${build}/src"/>
+    </target>
+
+    <target name="run-tests" depends="compile-tests">
+        <java classname="org.junit.runner.JUnitCore"
+              classpath="externalLib/junit-4.10.jar;${build}/src;${build}/test">
+            <arg value="shitalma.unixtools.wc.WcLibTest"/>
+            <arg value="shitalma.unixtools.cut.CutLibTest"/>
+            <arg value="shitalma.unixtools.head.HeadLibTest"/>
+            <arg value="shitalma.unixtools.tail.TailLibTest"/>
+            <arg value="shitalma.unixtools.sort.sortLibTest"/>
+            <arg value="shitalma.unixtools.uniq.UniqLibTest"/>
+            <arg value="shitalma.unixtools.reduceSpace.SpaceReducerLibTest"/>
+        </java>
+    </target>
+
+    <target name="createJar" depends="run-tests">
+        <mkdir dir="unix-tools_dist/lib"/>
+        <mkdir dir="unix-tools_dist/bin"/>
+        <jar destfile="unix-tools_dist/lib/unix-tools.jar" basedir="build/src"/>
+    </target>
+
+    <target name="copyScripts" depends="createJar">
+        <copy file="ShellFiles/smCut.sh" todir="unix-tools_dist/bin"/>
+        <copy file="ShellFiles/smHead.sh" todir="unix-tools_dist/bin"/>
+        <copy file="ShellFiles/smReducer.sh" todir="unix-tools_dist/bin"/>
+        <copy file="ShellFiles/smSort.sh" todir="unix-tools_dist/bin"/>
+        <copy file="ShellFiles/smTail.sh" todir="unix-tools_dist/bin"/>
+        <copy file="ShellFiles/smUniq.sh" todir="unix-tools_dist/bin"/>
+        <copy file="ShellFiles/smWc.sh" todir="unix-tools_dist/bin"/>
+    </target>
+
+    <target name="copyReadme" depends="copyScripts">
+        <copy file="README.md" todir="unix-tools_dist"/>
+    </target>
+
+    <target name="dist" depends="copyReadme">
+        <zip zipfile="unix-tools.zip" basedir="unix-tools_dist"/>
+    </target>
+
+    <target name="clean">
+        <delete dir="build"/>
+        <delete dir="unix-tools_dist"/>
+        <delete file="unix-tools.zip"/>
+    </target>
 </project>
