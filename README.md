@@ -14,11 +14,30 @@ Example ->  smWc.sh present-file-name-in-this-directory
 
 ## WC
 
-smWc.sh  file-name           
+* smWc.sh  file-name           
 
            It will be display word count,character count and lines count presented in this given file.
            
 Example ->    `smWc  one.txt`
+
+* smWc.sh -c file-name           
+
+           It will be display character count presented in this given file.
+           
+Example ->    `smWc  -c one.txt`
+
+* smWc.sh -c -w file-name           
+
+           It will be display character count and word count presented in this given file.
+           
+Example ->    `smWc  -c -w one.txt`
+
+* smWc.sh -c -w -l file-name           
+
+           It will be display character count,word count and line count presented in this given file.
+           
+Example ->    `smWc  -c -w -l one.txt`
+
 
 
 ## Head
