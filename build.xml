@@ -9,12 +9,12 @@
     </target>
 
     <target name="compile-source" depends="starting">
-        <javac srcdir="${src}" destdir="${build}/src"/>
+        <javac srcdir="${src}" destdir="${build}/src" includeantruntime="false"/>
     </target>
 
     <target name="compile-tests" depends="compile-source">
         <javac srcdir="${test-dir}" destdir="${build}/test"
-               classpath="${test-dir},${build}/src;externalLib/junit-4.10.jar;shitalma.unixtools/libraries/"/>
+               classpath="${build}/src;externalLib/junit-4.10.jar" includeantruntime="false"/>
     </target>
 
     <target name="run-tests" depends="compile-tests">
