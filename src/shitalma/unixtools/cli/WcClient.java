@@ -9,18 +9,28 @@ public class WcClient {
         WcClient wc = new WcClient();
         String[] processArgs = wc.getParameters(args);
         String fileData = readContent.readFile(processArgs[3]);
+        if(0 == fileData.compareTo("file not found")) return;
         WcLib operations = new WcLib(fileData);
+        int characters;
+        int words;
+        int lines;
         if(processArgs[0] != null) {
-            int characters = operations.countCharacters();
+            characters = operations.countCharacters();
             System.out.print(characters + " ");
         }
         if(processArgs[1] != null){
-            int words = operations.countWords();
+            words = operations.countWords();
             System.out.print(words+ " ");
         }
         if(processArgs[2] != null){
-            int lines = operations.countLines();
+            lines = operations.countLines();
             System.out.print(lines + " ");
+        }
+        if(processArgs[0] == null && processArgs[1] == null && processArgs[2] == null){
+            characters = operations.countCharacters();
+            words = operations.countWords();
+            lines = operations.countLines();
+            System.out.print(characters+" "+words+" "+lines+" ");
         }
         System.out.print(processArgs[3].substring(processArgs[3].length()-5,processArgs[3].length()));
     }

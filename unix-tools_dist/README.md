@@ -1,13 +1,43 @@
 unix-tools
 ==========
 
+## Installing process
+
+1. Copy .zip in your local machine
+2. Extract that .zip file
+3. Running shell commands you have to set environment varible on your local machine name `UNIXTOOLS_SM` 
+and give the path before bin folder.
+4. Set path name as `%UNIXTOOLS_SM%\bin` 
+5. Execute command from git bash.
+
+Example ->  smWc.sh present-file-name-in-this-directory
+
 ## WC
 
-smWc.sh  file-name           
+* smWc.sh  file-name           
 
            It will be display word count,character count and lines count presented in this given file.
            
 Example ->    `smWc  one.txt`
+
+* smWc.sh -c file-name           
+
+           It will be display character count presented in this given file.
+           
+Example ->    `smWc  -c one.txt`
+
+* smWc.sh -c -w file-name           
+
+           It will be display character count and word count presented in this given file.
+           
+Example ->    `smWc  -c -w one.txt`
+
+* smWc.sh -c -w -l file-name           
+
+           It will be display character count,word count and line count presented in this given file.
+           
+Example ->    `smWc  -c -w -l one.txt`
+
 
 
 ## Head
