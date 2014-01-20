@@ -14,7 +14,7 @@
 
     <target name="compile-tests" depends="compile-source">
         <javac srcdir="${test-dir}" destdir="${build}/test"
-               classpath="${test-dir},${build}/src;externalLib/junit-4.10.jar"/>
+               classpath="${test-dir},${build}/src;externalLib/junit-4.10.jar;shitalma.unixtools/libraries/"/>
     </target>
 
     <target name="run-tests" depends="compile-tests">
