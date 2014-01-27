@@ -14,18 +14,6 @@
         <mkdir dir="${build}/code-coverage/coverage/summary-xml"/>
     </target>
 
-     <target name="compile-source" depends="starting">
-        <javac srcdir="${src}" destdir="${build}/src" debug="yes" includeantruntime="false">
-            <classpath refid="cobertura.classpath" />
-        </javac>
-    </target>
-
-    <target name="compile-tests" depends="compile-source">
-        <javac srcdir="${test-dir}" destdir="${build}/test"
-               classpath="${build}/src;externalLib/junit-4.10.jar" includeantruntime="false">
-            <classpath refid="cobertura.classpath" />
-        </javac>
-    </target>
     <path id="cobertura.classpath">
         <fileset dir="externalLib">
             <include name="cobertura-2.0.3.jar" />
@@ -34,20 +22,20 @@
     </path>
     <taskdef classpathref="cobertura.classpath" resource="tasks.properties"/>
 
-    <target name="run-tests" depends="compile-tests">
-        <java classname="org.junit.runner.JUnitCore"
-              classpath="externalLib/junit-4.10.jar;${build}/src;${build}/test">
-            <arg value="shitalma.unixtools.wc.WcLibTest"/>
-            <arg value="shitalma.unixtools.cut.CutLibTest"/>
-            <arg value="shitalma.unixtools.head.HeadLibTest"/>
-            <arg value="shitalma.unixtools.tail.TailLibTest"/>
-            <arg value="shitalma.unixtools.sort.sortLibTest"/>
-            <arg value="shitalma.unixtools.uniq.UniqLibTest"/>
-            <arg value="shitalma.unixtools.reduceSpace.SpaceReducerLibTest"/>
-        </java>
+     <target name="compile-source" depends="starting">
+        <javac srcdir="${src}" destdir="${build}/src" debug="yes" includeantruntime="false">
+            <classpath refid="cobertura.classpath" />
+        </javac>
     </target>
 
-    <target name="instrument" depends="run-tests">
+    <target name="compile-tests" depends="compile-source">
+        <javac srcdir="${test-dir}" destdir="${build}/test"
+               classpath="${build}/src;externalLib/junit-4.10.jar" debug="yes" includeantruntime="false">
+            <classpath refid="cobertura.classpath" />
+        </javac>
+    </target>
+
+    <target name="instrument">
         <delete file="cobertura.ser"/>
         <delete dir="build/code-coverage/instrumented" />
 
@@ -59,13 +47,14 @@
         </cobertura-instrument>
     </target>
 
-    <target name="test-coverage" depends="run-tests">
+
+    <target name="run-tests">
         <junit fork="yes" dir="." failureProperty="test.failed">
             <classpath>
                 <pathelement location="build/code-coverage/instrumented"/>
                 <pathelement location="build/src" />
                 <pathelement location="build/test" />
-                <pathelement location="lib/test/junit-4.10.jar"/>
+                <pathelement location="externalLib/junit-4.10.jar"/>
             </classpath>
 
             <classpath refid= "cobertura.classpath"/>
@@ -73,7 +62,7 @@
             <formatter type="xml" />
             <test name="testcase" todir="build/code-coverage/reports/xml" if="testcase" />
             <batchtest todir="build/code-coverage/reports/xml" unless="testcase">
-                <fileset dir="test">
+                <fileset dir="test" >
                     <include name="**/*Test.java" />
                 </fileset>
             </batchtest>
@@ -86,7 +75,7 @@
         </junitreport>
     </target>
 
-    <target name="coverage-check">
+        <target name="coverage-check">
         <cobertura-check branchrate="34" totallinerate="100" />
     </target>
     <target name="coverage-report">
@@ -106,7 +95,7 @@
     </target>
 
     <target name="coverage"
-            depends="instrument,test-coverage,coverage-report,summary-coverage-report,alternate-coverage-report"
+            depends="compile-source,compile-tests,instrument,run-tests,coverage-report,summary-coverage-report,alternate-coverage-report"
             description="Compile, instrument ourself, run the tests and generate JUnit and coverage reports.">
     </target>
     <target name="createJar" depends="coverage">
@@ -115,7 +104,11 @@
         <jar destfile="unix-tools_dist/lib/unix-tools.jar" basedir="build/src"/>
     </target>
 
-    <target name="copyScripts" depends="createJar">
+    <target name="copyConfig" depends="createJar">
+        <copy file="config.property" todir="unix-tools_dist/lib"/>
+    </target>
+
+    <target name="copyScripts" depends="copyConfig">
         <copy file="ShellFiles/smCut.sh" todir="unix-tools_dist/bin"/>
         <copy file="ShellFiles/smHead.sh" todir="unix-tools_dist/bin"/>
         <copy file="ShellFiles/smReducer.sh" todir="unix-tools_dist/bin"/>

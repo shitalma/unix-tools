@@ -1,11 +1,11 @@
 package shitalma.unixtools.cli;
 
-import shitalma.unixtools.filesystem.FileReader;
+import shitalma.unixtools.filesystem.MyFileReader;
 import shitalma.unixtools.libraries.WcLib;
 
 public class WcClient {
     public static void main(String[] args) {
-        FileReader readContent = new FileReader();
+        MyFileReader readContent = new MyFileReader();
         WcClient wc = new WcClient();
         String[] processArgs = wc.getParameters(args);
         String fileData = readContent.readFile(processArgs[3]);

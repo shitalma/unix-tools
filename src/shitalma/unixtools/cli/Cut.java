@@ -1,6 +1,6 @@
 package shitalma.unixtools.cli;
 
-import shitalma.unixtools.filesystem.FileReader;
+import shitalma.unixtools.filesystem.MyFileReader;
 import shitalma.unixtools.libraries.CutLib;
 
 public class Cut {
@@ -10,7 +10,7 @@ public class Cut {
             System.out.println("please give file name,fieldNo");
             return;
         }
-        FileReader fs = new FileReader();
+        MyFileReader fs = new MyFileReader();
         CutLib cut = new CutLib();
         String properArgv[] = cutclient.getProperArgv(args);
         if(properArgv[3] != null){

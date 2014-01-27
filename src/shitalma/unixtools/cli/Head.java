@@ -1,22 +1,36 @@
 package shitalma.unixtools.cli;
 
-import shitalma.unixtools.filesystem.FileReader;
+import shitalma.unixtools.filesystem.MyFileReader;
 import shitalma.unixtools.libraries.HeadLib;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Properties;
 
 public class Head {
     public static void main(String[] args) {
-        int length = 10;
+        int length;
         String fileName = args[0];
         String fileData;
         StringBuilder sb = new StringBuilder();
 
         Head head = new Head();
-        FileReader readContent = new FileReader();
+        MyFileReader readContent = new MyFileReader();
 
         String[] processArgs = head.getParameters(args);
         if (processArgs[1] != null) {
             length = Math.abs(Integer.parseInt(processArgs[1]));
             fileName = processArgs[0];
+        }
+        else {
+            try  {
+                FileReader reader = new FileReader("config.property");
+                Properties properties = new Properties();
+                properties.load(reader);
+                length = Integer.parseInt(properties.getProperty("default.head.properties"));
+            } catch (IOException e) {
+                length = 10;
+            }
         }
         fileData = readContent.readFile(fileName);
         HeadLib headLib = new HeadLib(length, fileData);

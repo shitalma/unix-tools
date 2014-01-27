@@ -1,6 +1,6 @@
 package shitalma.unixtools.cli;
 
-import shitalma.unixtools.filesystem.FileReader;
+import shitalma.unixtools.filesystem.MyFileReader;
 import shitalma.unixtools.libraries.sortLib;
 
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.io.IOException;
 public class Sort {
     public static void main(String args[]) throws IOException {
         Sort sortclient = new Sort();
-        FileReader fs = new FileReader();
+        MyFileReader fs = new MyFileReader();
         sortLib sort = new sortLib();
         String columnData;
         String properArgv[] = sortclient.getArguments(args);
